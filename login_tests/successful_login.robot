@@ -34,7 +34,7 @@ ${INDICATOR_OF_LOGIN_PAGE}           Welcome Page
 Test That Login Works
     Verify That Login Page And Elements Are Ready
     Login                            ${VALID_USERNAME}                    ${VALID_PASSWORD}                  
-    
+
 Test Login Without arguments
     Verify That Login Page And Elements Are Ready
     Login
@@ -68,7 +68,9 @@ Login With Credentials
 
 Login
 #Okey here let's make an even more advanced login keyword. This keyword will login with default credentials unless it is given them as arguments.
-    #Notice that here I'm using a list variable with the @syntax, this way we can pass two arguments in to the login function. 
+    #Notice that here I'm using a list variable with the @syntax, this way we can pass two arguments in to the login function.
+    #I'm first doing here a check if there are arguments given to the keyword, converting the list to a string with "Catenate" keyword and using 
+    #"Get Length" keyword for the newly created string.  
     [arguments]                      @{login_credentials}  
     ${condition}                     Catenate                             @{login_credentials}
     ${length}=                       Get Length                           ${condition}
