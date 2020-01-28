@@ -1,6 +1,9 @@
 *** Settings ***
 Library        SeleniumLibrary
 Resource       variables.robot
+
+
+
 *** Keywords ***
 Verify That Login Page And Elements Are Ready
     Wait Until Element Is Enabled    ${USER_NAME_INPUT_FIELD}      
@@ -19,7 +22,6 @@ Validate That Values Are Correct
     ${username}=                     Get Value                            ${USER_NAME_INPUT_FIELD}
     Should Be Equal                  ${username}                          ${VALID_USERNAME}
 
-    
 #########################################################
 
 Verify Login
@@ -30,7 +32,7 @@ Verify Unsuccessfull Login
 
 Set Up Test Environment
     Open Browser                     ${BROWSER_URL}                       ${BROWSER} 
-
+    Verify That Login Page And Elements Are Ready
 Input Credentials
     [Arguments]                      ${username}  ${password}
     Input Text                       ${USER_NAME_INPUT_FIELD}             ${username}
