@@ -27,26 +27,3 @@ installing all these, and that's easiest done using `pip
 
     pip install -r requirements.txt
 
-Using Invoke
-~~~~~~~~~~~~
-
-Invoke tasks are defined in the `<tasks.py>`_ file and they are executed from
-the command line like::
-
-    inv[oke] task [options]
-
-Creating release
-----------------
-
-1. Test that everything works::
-
-     python demoapp/server.py
-     robot login_tests
-
-2. Move regenerated log and report to docs::
-
-     inv move-docs
-
-5. If README.rst has changed, generate project documentation based on it::
-
-     inv project-docs
